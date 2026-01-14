@@ -1,0 +1,195 @@
+/* Base styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #fdf6f0;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f8e9f0;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #a1356f;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+header p {
+  font-size: 1rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0.5rem auto 0;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 1rem 2rem;
+  background-color: #fbeef6;
+}
+
+.filters button {
+  background-color: #a1356f;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.filters button:hover {
+  background-color: #c74a95;
+  transform: scale(1.05);
+}
+
+/* Cards container */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* Perfume cards */
+.perfume-card {
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+
+  /* Animation setup */
+  opacity: 0;
+  animation: fadeInUp 0.8s forwards;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Staggered animation delays */
+.perfume-card:nth-child(1) { animation-delay: 0.1s; }
+.perfume-card:nth-child(2) { animation-delay: 0.2s; }
+.perfume-card:nth-child(3) { animation-delay: 0.3s; }
+.perfume-card:nth-child(4) { animation-delay: 0.4s; }
+.perfume-card:nth-child(5) { animation-delay: 0.5s; }
+.perfume-card:nth-child(6) { animation-delay: 0.6s; }
+.perfume-card:nth-child(7) { animation-delay: 0.7s; }
+.perfume-card:nth-child(8) { animation-delay: 0.8s; }
+.perfume-card:nth-child(9) { animation-delay: 0.9s; }
+.perfume-card:nth-child(10) { animation-delay: 1s; }
+
+/* Hover effect */
+.perfume-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* Shimmer effect */
+.perfume-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.15) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: rotate(25deg);
+  transition: all 0.8s ease;
+  pointer-events: none;
+}
+
+.perfume-card:hover::after {
+  top: 100%;
+  left: 100%;
+}
+
+/* Images */
+.perfume-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  background-color: #f2f2f2;
+  transition: transform 0.5s ease;
+}
+
+.perfume-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Card content */
+.perfume-details {
+  padding: 1rem 1.5rem 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.perfume-details h2 {
+  margin: 0;
+  color: #a1356f;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.notes {
+  font-style: italic;
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+/* Layering section */
+.layering {
+  margin-top: auto;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.layering p {
+  margin: 0.3rem 0;
+}
+
+.layering p strong {
+  color: #a1356f;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f8e9f0;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
